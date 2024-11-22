@@ -1,4 +1,4 @@
-package com.example.webik.jspquests;
+package com.example.webik.jspquests.controllers;
 
 import java.io.*;
 

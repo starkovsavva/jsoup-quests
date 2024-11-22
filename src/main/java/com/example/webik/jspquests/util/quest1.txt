@@ -1,0 +1,24 @@
+QUEST: The Lost Treasure
+DESCRIPTION: You are on a journey to find the lost treasure of Eldorado.
+PROLOGUE: The legend says that deep in the jungle lies the treasure. Can you find it?
+
+CHAPTER: 1
+TITLE: The Jungle Path
+CONTENT: You find yourself at the entrance of a dense jungle.
+QUESTION: What do you do?
+ANSWER: Go left | 2 | You head towards a narrow path.
+ANSWER: Go right | 3 | You hear strange noises from this path.
+
+CHAPTER: 2
+TITLE: Narrow Path
+CONTENT: The path leads to a river. It's dangerous to cross.
+QUESTION: Do you cross the river?
+ANSWER: Yes | 4 | You decide to swim across.
+ANSWER: No | 5 | You search for another way.
+
+CHAPTER: 3
+TITLE: Strange Noises
+CONTENT: You find an ancient ruin with strange carvings.
+QUESTION: Do you investigate the ruins?
+ANSWER: Yes | 6 | The carvings reveal a hidden path.
+ANSWER: No | 5 | You decide to leave the ruins.
