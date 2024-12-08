@@ -14,7 +14,7 @@
             <div class="quest-details">
                 <h3><%= quest.getTitle() %></h3>
                 <p><%= quest.getDescription() %></p>
-                <a href="quest.jsp" class="start-button">Начать квест</a>
+                <a href="quest" class="start-button">Начать квест</a>
             </div>
         </li>
         <%

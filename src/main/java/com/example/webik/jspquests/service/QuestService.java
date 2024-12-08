@@ -1,6 +1,8 @@
 package com.example.webik.jspquests.service;
 
+import com.example.webik.jspquests.models.Chapter;
 import com.example.webik.jspquests.models.Quest;
+import com.example.webik.jspquests.models.Question;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
@@ -54,12 +56,12 @@ public class QuestService {
         QuestParser questFileReader = new QuestParser();
 
         Quest quest = questFileReader.parseQuestFile(filePath,1);
-        System.out.println(quest.getId());
-        System.out.println(quest.getDescription());
-        System.out.println(quest.getTitle());
-        System.out.println(quest.getImagePath());
-        System.out.println(quest.getPrologue());
-
+//        System.out.println(quest.getId());
+//        System.out.println(quest.getDescription());
+//        System.out.println(quest.getTitle());
+//        System.out.println(quest.getImagePath());
+//        System.out.println(quest.getPrologue());
+//        System.out.println(questions.stream().findFirst().get().getId());
         // Добавляем квест в коллекцию
         addQuest(quest);
 

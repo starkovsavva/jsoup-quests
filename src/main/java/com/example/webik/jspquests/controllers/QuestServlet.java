@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/quest")
+@WebServlet("/quests")
 public class QuestServlet extends HttpServlet {
     private final QuestService questService = QuestService.getInstance();
     private final ChapterService chapterService = new ChapterService();
@@ -44,7 +44,7 @@ public class QuestServlet extends HttpServlet {
         Chapter chapter = chapterService.getChapter(questId, chapterNumber);
 
         req.setAttribute("chapter", chapter);
-        req.getRequestDispatcher("/chapter.jsp").forward(req, resp);
+        req.getRequestDispatcher("/quest.jsp").forward(req, resp);
     }
 
     private List<Chapter> loadChaptersFromFile(String filePath) throws IOException {

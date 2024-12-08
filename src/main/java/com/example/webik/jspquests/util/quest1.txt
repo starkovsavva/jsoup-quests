@@ -5,20 +5,97 @@ PROLOGUE: The legend says that deep in the jungle lies the treasure. Can you fin
 CHAPTER: 1
 TITLE: The Jungle Path
 CONTENT: You find yourself at the entrance of a dense jungle.
-QUESTION: What do you do?
-ANSWER: Go left | 2 | You head towards a narrow path.
-ANSWER: Go right | 3 | You hear strange noises from this path.
+QUESTION: What do you do? | 1
+ANSWER: Go left | 2.2 | You head towards a narrow path.
+ANSWER: Go right | 3.2 | You hear strange noises from this path.
+
 
 CHAPTER: 2
 TITLE: Narrow Path
 CONTENT: The path leads to a river. It's dangerous to cross.
-QUESTION: Do you cross the river?
-ANSWER: Yes | 4 | You decide to swim across.
-ANSWER: No | 5 | You search for another way.
+QUESTION: Do you cross the river? | 2
+ANSWER: Yes | 8 | You decide to swim across.
+ANSWER: No | 9 | You search for another way.
+QUESTION: Do you look for a boat? | 10
+ANSWER: Yes | 11 | You find a small boat.
+ANSWER: No | 12 | You decide to swim instead.
 
 CHAPTER: 3
 TITLE: Strange Noises
 CONTENT: You find an ancient ruin with strange carvings.
-QUESTION: Do you investigate the ruins?
-ANSWER: Yes | 6 | The carvings reveal a hidden path.
-ANSWER: No | 5 | You decide to leave the ruins.
+QUESTION: Do you investigate the ruins? | 13
+ANSWER: Yes | 14 | The carvings reveal a hidden path.
+ANSWER: No | 15 | You decide to leave the ruins.
+QUESTION: Do you search for clues? | 3
+ANSWER: Yes | 17 | You find a map fragment.
+ANSWER: No | 18 | You leave without searching.
+
+CHAPTER: 4
+TITLE: Crossing the River
+CONTENT: You manage to cross the river, but you're exhausted.
+QUESTION: Do you rest? | 19
+ANSWER: Yes | 20 | You take a short rest.
+ANSWER: No | 21 | You continue your journey.
+QUESTION: Do you eat something? | 22
+ANSWER: Yes | 23 | You feel a bit better.
+ANSWER: No | 24 | You continue without eating.
+
+CHAPTER: 5
+TITLE: Another Way
+CONTENT: You find a bridge that leads over the river.
+QUESTION: Do you cross the bridge? | 25
+ANSWER: Yes | 26 | You safely cross the bridge.
+ANSWER: No | 27 | You decide to look for another way.
+QUESTION: Do you check the bridge for traps? | 28
+ANSWER: Yes | 29 | You find a hidden trap.
+ANSWER: No | 30 | You cross without checking.
+
+CHAPTER: 6
+TITLE: Hidden Path
+CONTENT: The hidden path leads to a cave.
+QUESTION: Do you enter the cave? | 31
+ANSWER: Yes | 32 | You enter the cave.
+ANSWER: No | 33 | You decide to leave the cave.
+QUESTION: Do you light a torch? | 34
+ANSWER: Yes | 35 | The cave is illuminated.
+ANSWER: No | 36 | You enter the cave in the dark.
+
+CHAPTER: 7
+TITLE: Short Rest
+CONTENT: You feel refreshed after your rest.
+QUESTION: Do you continue? | 37
+ANSWER: Yes | 38 | You continue your journey.
+ANSWER: No | 39 | You decide to rest longer.
+QUESTION: Do you check your supplies? | 40
+ANSWER: Yes | 41 | You find some extra food.
+ANSWER: No | 42 | You continue without checking.
+
+CHAPTER: 8
+TITLE: Continuing Journey
+CONTENT: You continue your journey, but you're very tired.
+QUESTION: Do you push on? | 43
+ANSWER: Yes | 44 | You push on despite your fatigue.
+ANSWER: No | 45 | You decide to rest.
+QUESTION: Do you look for shelter? | 46
+ANSWER: Yes | 47 | You find a safe place to rest.
+ANSWER: No | 48 | You continue without shelter.
+
+CHAPTER: 9
+TITLE: Safe Crossing
+CONTENT: You safely cross the bridge and continue your journey.
+QUESTION: Do you explore the area? | 49
+ANSWER: Yes | 50 | You explore the area.
+ANSWER: No | 51 | You continue your journey.
+QUESTION: Do you look for signs of the treasure? | 52
+ANSWER: Yes | 53 | You find a clue.
+ANSWER: No | 54 | You continue without searching.
+
+CHAPTER: 10
+TITLE: Looking for Another Way
+CONTENT: You continue to look for another way across the river.
+QUESTION: Do you find another way? | 55
+ANSWER: Yes | 56 | You find another way.
+ANSWER: No | 57 | You continue searching.
+QUESTION: Do you ask for help? | 58
+ANSWER: Yes | 59 | A local helps you find a path.
+ANSWER: No | 60 | You continue searching alone.

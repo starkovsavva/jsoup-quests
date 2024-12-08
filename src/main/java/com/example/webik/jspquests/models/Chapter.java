@@ -22,4 +22,9 @@ public class Chapter {
     public boolean hasQuestions() {
         return questions != null && !questions.isEmpty();
     }
+
+    public Integer getQuestId() {
+
+        return id;
+    }
 }

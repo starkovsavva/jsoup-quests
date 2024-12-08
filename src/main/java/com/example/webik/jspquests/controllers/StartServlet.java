@@ -13,28 +13,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/quests")
+@WebServlet("/start")
 public class StartServlet extends HttpServlet {
 
     QuestService questService = new QuestService();
     List<Quest> quests = new ArrayList<>();
     @Override
     public void init(){
-        quests = questService.getAllQuests();
-
-
+        quests = questService.loadAllQuests("C:/Users//sdf/IdeaProjects/jsp-quests/src/main/java/com/example/webik/jspquests/util");
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Генерация списка квестов (в реальном приложении это может быть запрос из базы данных)
-        List<Quest> quests =
-
-
         // Передача списка квестов в JSP
         request.setAttribute("quests", quests);
+//        request.setAttribute("chapter", currentChapter);
 
         // Переход к JSP для отображения списка
-        request.getRequestDispatcher("/quests.jsp").forward(request, response);
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 }
 
