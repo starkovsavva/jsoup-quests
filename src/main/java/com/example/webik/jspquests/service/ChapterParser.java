@@ -17,13 +17,15 @@ public class ChapterParser {
         List<Question> currentQuestions = new ArrayList<>();
         Question.QuestionBuilder currentQuestionBuilder = null;
         List<Answer> currentAnswers = new ArrayList<>();
-        int chapterNumber = 0;
+
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
 
+
             while ((line = reader.readLine()) != null) {
                 line = line.trim();
+                Integer currentChapterId = 0;
                 if (line.startsWith("CHAPTER:")) {
                     // Завершить текущую главу
                     if (currentChapterBuilder != null) {
@@ -33,9 +35,11 @@ public class ChapterParser {
                         chapters.add(currentChapterBuilder.questions(new ArrayList<>(currentQuestions)).build());
                         currentQuestions.clear();
                     }
-                    chapterNumber++;
+                    String[] chapterParam = line.substring(9).trim().split("\\:");
+                    int chapterNumber = Integer.parseInt(chapterParam[0].trim());
+                    currentChapterId++;
                     currentChapterBuilder = Chapter.builder()
-                            .id(chapterNumber)
+                            .id(currentChapterId)
                             .quest_id(questId)
                             .chapter_number(chapterNumber);
                 } else if (line.startsWith("TITLE:")) {
@@ -52,20 +56,21 @@ public class ChapterParser {
                     // Разделить строку на две части: текст вопроса и идентификатор
                     String[] parts = line.substring(9).trim().split("\\|");
                     String questionText = parts[0].trim();
-                    int questionId = Integer.parseInt(parts[1].trim().split(".")[1]);
-                    int chapterId = Integer.parseInt(parts[1].trim().split(".")[0]);
+                    Integer chapterId = Integer.parseInt(parts[1].trim().split("\\.")[0]);
+                    Integer questionId = Integer.parseInt(parts[1].trim().split("\\.")[1]);
 
                     currentQuestionBuilder = Question.builder()
-                            .question_text(questionText)
+                            .id(questionId)
                             .chapter_id(chapterId)
-                            .id(questionId); // Добавляем идентификатор вопроса
+                            .question_text(questionText);
                     currentAnswers.clear();
                 } else if (line.startsWith("ANSWER:")) {
                     String[] parts = line.substring(7).split("\\|");
                     if (parts.length == 3) {
                         currentAnswers.add(Answer.builder()
                                 .answer_text(parts[0].trim())
-                                .next_question_id(Integer.parseInt(parts[1].trim()))
+                                .nextChapterId(Integer.parseInt(parts[1].trim().split("\\.")[0]))
+                                .next_question_id(Integer.parseInt(parts[1].trim().split("\\.")[1]))
                                 .description(parts[2].trim())
                                 .build());
                     }

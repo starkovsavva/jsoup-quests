@@ -11,6 +11,7 @@ public class Answer {
     private Integer id;
     private Integer question_id;
     private String answer_text;
+    private Integer nextChapterId;
     private Integer next_question_id;
     private String description;
 }

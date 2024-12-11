@@ -43,32 +43,17 @@ public class ChapterService {
                 .orElse(null);
     }
 
-    public Question getQuestById(int questId) {
+    public Map<Integer,Chapter> getChapterAndQuestById(int questId, int questionId) {
         // Получаем текущую главу
-        List<Question> questions = currentChapter.getQuestions();
-
-        // Ищем вопрос в текущей главе
-        Optional<Question> questionOptional = questions.stream()
-                .filter(question -> question.getId() == questId)
+        Chapter questchapter = getChapterById(questId);
+        Optional<Question> chapterOptional = questchapter.getQuestions().stream()
+                .filter( question -> question.getId() == questionId)
                 .findFirst();
 
-        // Если вопрос найден в текущей главе, возвращаем его
-        if (questionOptional.isPresent()) {
-            return questionOptional.get();
-        }
-
-        // Если вопрос не найден в текущей главе, ищем в других главах
-        for (Chapter chapter : chaptersByQuestId.get(currentChapter.getQuestId())) {
-            if (chapter != currentChapter) {
-                questions = chapter.getQuestions();
-                questionOptional = questions.stream()
-                        .filter(question -> question.getId() == questId)
-                        .findFirst();
-
-                if (questionOptional.isPresent()) {
-                    return questionOptional.get();
-                }
-            }
+        if(chapterOptional.isPresent()){
+            Map<Integer,Chapter> result = new HashMap<>();
+            result.put(questionId,questchapter);
+            return result;
         }
         return null;
     }

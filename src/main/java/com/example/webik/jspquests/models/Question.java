@@ -11,7 +11,7 @@ import java.util.List;
 @Builder
 public class Question {
 
-    private int id;
+    private Integer id;
     private Integer chapter_id;
     private List<Answer> answers; // Список вариантов ответов
     private String question_text;

@@ -46,25 +46,41 @@
 <p>${chapter.content}</p>
 
 <c:choose>
-        <c:when test="${not empty chapter.questions}">
+    <c:when test="${not empty chapter.questions}">
         <!-- Форма для отправки выбора ответа -->
         <form method="post" action="quest">
             <!-- Перебор вопросов текущей главы -->
+
             <c:forEach var="question" items="${chapter.questions}">
-                <h3>${question.question_text}</h3>
-                <!-- Перебор ответов для текущего вопроса -->
-                <c:forEach var="answer" items="${question.answers}">
-                    <label>
-                        <input type="radio" name="next_question_id" value="${answer.next_question_id}" required>
-                            ${answer.answer_text} (${answer.description})
-                    </label><br>
-                </c:forEach>
+                <!-- Проверяем, соответствует ли текущий вопрос переданному questionId -->
+                <c:if test="${question.id == questionId}">
+                    <h3>${question.question_text}</h3>
+
+                    <!-- Перебор ответов для текущего вопроса -->
+                    <c:forEach var="answer" items="${question.answers}">
+                        <label>
+                            <input type="radio" name="questionId" value="${answer.next_question_id}" data-chapter-id="${answer.nextChapterId}" required>
+                                ${answer.answer_text} (${answer.description})
+                        </label><br>
+                    </c:forEach>
+                </c:if>
             </c:forEach>
             <!-- Кнопка отправки выбора -->
+            <input type="hidden" name="chapterId" id="chapterId">
             <button type="submit">
                 Выбрать ответ
             </button>
         </form>
+        <script>
+            // JavaScript для установки значения chapterId при выборе ответа
+            document.querySelectorAll('input[name="questionId"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    // Устанавливаем chapterId в скрытое поле
+                    document.getElementById('chapterId').value = this.getAttribute('data-chapter-id');
+                });
+            });
+        </script>
+
     </c:when>
     <c:otherwise>
         <!-- Сообщение в случае завершения квеста -->

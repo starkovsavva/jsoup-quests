@@ -5,97 +5,150 @@ PROLOGUE: The legend says that deep in the jungle lies the treasure. Can you fin
 CHAPTER: 1
 TITLE: The Jungle Path
 CONTENT: You find yourself at the entrance of a dense jungle.
-QUESTION: What do you do? | 1
-ANSWER: Go left | 2.2 | You head towards a narrow path.
-ANSWER: Go right | 3.2 | You hear strange noises from this path.
-
+QUESTION: What do you do? | 1.1
+ANSWER: Go left | 2.1 | You head towards a narrow path.
+ANSWER: Go right | 3.1 | You hear strange noises from this path.
 
 CHAPTER: 2
 TITLE: Narrow Path
 CONTENT: The path leads to a river. It's dangerous to cross.
-QUESTION: Do you cross the river? | 2
-ANSWER: Yes | 8 | You decide to swim across.
-ANSWER: No | 9 | You search for another way.
-QUESTION: Do you look for a boat? | 10
-ANSWER: Yes | 11 | You find a small boat.
-ANSWER: No | 12 | You decide to swim instead.
+QUESTION: Do you cross the river? | 2.1
+ANSWER: Yes | 2.2 | You decide to swim across.
+ANSWER: No | 2.3 | You search for another way.
+QUESTION: Do you look for a boat? | 2.2
+ANSWER: Yes | 2.3 | You find a small boat.
+ANSWER: No | 2.4 | You decide to swim instead.
+QUESTION: Do you cross the bridge? | 2.3
+ANSWER: Yes | 2.4 | You safely cross the bridge.
+ANSWER: No | 2.5 | You decide to look for another way.
+QUESTION: Do you check the bridge for traps? | 2.4
+ANSWER: Yes | 2.5 | You find a hidden trap.
+ANSWER: No | 2.6 | You cross without checking.
 
 CHAPTER: 3
 TITLE: Strange Noises
 CONTENT: You find an ancient ruin with strange carvings.
-QUESTION: Do you investigate the ruins? | 13
-ANSWER: Yes | 14 | The carvings reveal a hidden path.
-ANSWER: No | 15 | You decide to leave the ruins.
-QUESTION: Do you search for clues? | 3
-ANSWER: Yes | 17 | You find a map fragment.
-ANSWER: No | 18 | You leave without searching.
+QUESTION: Do you investigate the ruins? | 3.1
+ANSWER: Yes | 3.2 | The carvings reveal a hidden path.
+ANSWER: No | 3.3 | You decide to leave the ruins.
+QUESTION: Do you search for clues? | 3.2
+ANSWER: Yes | 3.3 | You find a map fragment.
+ANSWER: No | 3.4 | You leave without searching.
+QUESTION: Do you enter the cave? | 3.3
+ANSWER: Yes | 3.4 | You enter the cave.
+ANSWER: No | 3.5 | You decide to leave the cave.
+QUESTION: Do you light a torch? | 3.4
+ANSWER: Yes | 3.5 | The cave is illuminated.
+ANSWER: No | 3.6 | You enter the cave in the dark.
 
 CHAPTER: 4
 TITLE: Crossing the River
 CONTENT: You manage to cross the river, but you're exhausted.
-QUESTION: Do you rest? | 19
-ANSWER: Yes | 20 | You take a short rest.
-ANSWER: No | 21 | You continue your journey.
-QUESTION: Do you eat something? | 22
-ANSWER: Yes | 23 | You feel a bit better.
-ANSWER: No | 24 | You continue without eating.
+QUESTION: Do you rest? | 4.1
+ANSWER: Yes | 4.2 | You take a short rest.
+ANSWER: No | 4.3 | You continue your journey.
+QUESTION: Do you eat something? | 4.2
+ANSWER: Yes | 4.3 | You feel a bit better.
+ANSWER: No | 4.4 | You continue without eating.
+QUESTION: Do you continue? | 4.3
+ANSWER: Yes | 4.4 | You continue your journey.
+ANSWER: No | 4.5 | You decide to rest longer.
+QUESTION: Do you check your supplies? | 4.4
+ANSWER: Yes | 4.5 | You find some extra food.
+ANSWER: No | 4.6 | You continue without checking.
 
 CHAPTER: 5
 TITLE: Another Way
 CONTENT: You find a bridge that leads over the river.
-QUESTION: Do you cross the bridge? | 25
-ANSWER: Yes | 26 | You safely cross the bridge.
-ANSWER: No | 27 | You decide to look for another way.
-QUESTION: Do you check the bridge for traps? | 28
-ANSWER: Yes | 29 | You find a hidden trap.
-ANSWER: No | 30 | You cross without checking.
+QUESTION: Do you cross the bridge? | 5.1
+ANSWER: Yes | 5.2 | You safely cross the bridge.
+ANSWER: No | 5.3 | You decide to look for another way.
+QUESTION: Do you check the bridge for traps? | 5.2
+ANSWER: Yes | 5.3 | You find a hidden trap.
+ANSWER: No | 5.4 | You cross without checking.
+QUESTION: Do you find another way? | 5.3
+ANSWER: Yes | 5.4 | You find another way.
+ANSWER: No | 5.5 | You continue searching.
+QUESTION: Do you ask for help? | 5.4
+ANSWER: Yes | 5.5 | A local helps you find a path.
+ANSWER: No | 5.6 | You continue searching alone.
 
 CHAPTER: 6
 TITLE: Hidden Path
 CONTENT: The hidden path leads to a cave.
-QUESTION: Do you enter the cave? | 31
-ANSWER: Yes | 32 | You enter the cave.
-ANSWER: No | 33 | You decide to leave the cave.
-QUESTION: Do you light a torch? | 34
-ANSWER: Yes | 35 | The cave is illuminated.
-ANSWER: No | 36 | You enter the cave in the dark.
+QUESTION: Do you enter the cave? | 6.1
+ANSWER: Yes | 6.2 | You enter the cave.
+ANSWER: No | 6.3 | You decide to leave the cave.
+QUESTION: Do you light a torch? | 6.2
+ANSWER: Yes | 6.3 | The cave is illuminated.
+ANSWER: No | 6.4 | You enter the cave in the dark.
+QUESTION: Do you explore the area? | 6.3
+ANSWER: Yes | 6.4 | You explore the area.
+ANSWER: No | 6.5 | You continue your journey.
+QUESTION: Do you look for signs of the treasure? | 6.4
+ANSWER: Yes | 6.5 | You find a clue.
+ANSWER: No | 6.6 | You continue without searching.
 
 CHAPTER: 7
 TITLE: Short Rest
 CONTENT: You feel refreshed after your rest.
-QUESTION: Do you continue? | 37
-ANSWER: Yes | 38 | You continue your journey.
-ANSWER: No | 39 | You decide to rest longer.
-QUESTION: Do you check your supplies? | 40
-ANSWER: Yes | 41 | You find some extra food.
-ANSWER: No | 42 | You continue without checking.
+QUESTION: Do you continue? | 7.1
+ANSWER: Yes | 7.2 | You continue your journey.
+ANSWER: No | 7.3 | You decide to rest longer.
+QUESTION: Do you check your supplies? | 7.2
+ANSWER: Yes | 7.3 | You find some extra food.
+ANSWER: No | 7.4 | You continue without checking.
+QUESTION: Do you push on? | 7.3
+ANSWER: Yes | 7.4 | You push on despite your fatigue.
+ANSWER: No | 7.5 | You decide to rest.
+QUESTION: Do you look for shelter? | 7.4
+ANSWER: Yes | 7.5 | You find a safe place to rest.
+ANSWER: No | 7.6 | You continue without shelter.
 
 CHAPTER: 8
 TITLE: Continuing Journey
 CONTENT: You continue your journey, but you're very tired.
-QUESTION: Do you push on? | 43
-ANSWER: Yes | 44 | You push on despite your fatigue.
-ANSWER: No | 45 | You decide to rest.
-QUESTION: Do you look for shelter? | 46
-ANSWER: Yes | 47 | You find a safe place to rest.
-ANSWER: No | 48 | You continue without shelter.
+QUESTION: Do you push on? | 8.1
+ANSWER: Yes | 8.2 | You push on despite your fatigue.
+ANSWER: No | 8.3 | You decide to rest.
+QUESTION: Do you look for shelter? | 8.2
+ANSWER: Yes | 8.3 | You find a safe place to rest.
+ANSWER: No | 8.4 | You continue without shelter.
+QUESTION: Do you explore the area? | 8.3
+ANSWER: Yes | 8.4 | You explore the area.
+ANSWER: No | 8.5 | You continue your journey.
+QUESTION: Do you look for signs of the treasure? | 8.4
+ANSWER: Yes | 8.5 | You find a clue.
+ANSWER: No | 8.6 | You continue without searching.
 
 CHAPTER: 9
 TITLE: Safe Crossing
 CONTENT: You safely cross the bridge and continue your journey.
-QUESTION: Do you explore the area? | 49
-ANSWER: Yes | 50 | You explore the area.
-ANSWER: No | 51 | You continue your journey.
-QUESTION: Do you look for signs of the treasure? | 52
-ANSWER: Yes | 53 | You find a clue.
-ANSWER: No | 54 | You continue without searching.
+QUESTION: Do you explore the area? | 9.1
+ANSWER: Yes | 9.2 | You explore the area.
+ANSWER: No | 9.3 | You continue your journey.
+QUESTION: Do you look for signs of the treasure? | 9.2
+ANSWER: Yes | 9.3 | You find a clue.
+ANSWER: No | 9.4 | You continue without searching.
+QUESTION: Do you find another way? | 9.3
+ANSWER: Yes | 9.4 | You find another way.
+ANSWER: No | 9.5 | You continue searching.
+QUESTION: Do you ask for help? | 9.4
+ANSWER: Yes | 9.5 | A local helps you find a path.
+ANSWER: No | 9.6 | You continue searching alone.
 
 CHAPTER: 10
 TITLE: Looking for Another Way
 CONTENT: You continue to look for another way across the river.
-QUESTION: Do you find another way? | 55
-ANSWER: Yes | 56 | You find another way.
-ANSWER: No | 57 | You continue searching.
-QUESTION: Do you ask for help? | 58
-ANSWER: Yes | 59 | A local helps you find a path.
-ANSWER: No | 60 | You continue searching alone.
+QUESTION: Do you find another way? | 10.1
+ANSWER: Yes | 10.2 | You find another way.
+ANSWER: No | 10.3 | You continue searching.
+QUESTION: Do you ask for help? | 10.2
+ANSWER: Yes | 10.3 | A local helps you find a path.
+ANSWER: No | 10.4 | You continue searching alone.
+QUESTION: Do you explore the area? | 10.3
+ANSWER: Yes | 10.4 | You explore the area.
+ANSWER: No | 10.5 | You continue your journey.
+QUESTION: Do you look for signs of the treasure? | 10.4
+ANSWER: Yes | 10.5 | You find a clue.
+ANSWER: No | 10.6 | You continue without searching.

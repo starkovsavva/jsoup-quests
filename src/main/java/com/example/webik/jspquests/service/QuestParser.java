@@ -26,6 +26,8 @@ public class QuestParser {
                     questBuilder.description(line.substring(12).trim());
                 } else if (line.startsWith("PROLOGUE:")) {
                     questBuilder.prologue(line.substring(9).trim());
+                } else if (line.startsWith("CHAPTER")){
+                    return questBuilder.id(questId).build();
                 }
             }
         }

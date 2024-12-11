@@ -17,9 +17,12 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 @WebServlet("/quest")
 public class StartQuestServlet extends HttpServlet {
     private final ChapterService chapterService = new ChapterService();
+    private final QuestService questService = new QuestService();
 
     @Override
     public void init() throws ServletException {
@@ -36,25 +39,29 @@ public class StartQuestServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Получение параметров
         String chapterIdParam = request.getParameter("chapterId");
-        String questid = request.getParameter("questId");
+        String questionIdParam = request.getParameter("questionId");
         int chapterId = chapterIdParam != null ? Integer.parseInt(chapterIdParam) : 1;
+        int questionId = questionIdParam != null ? Integer.parseInt(questionIdParam): 1;
 
+
+        Chapter chapterreq = null;
         // Загрузка глав
-        List<Chapter> chapters = chapterService.getQuestById(chapterId,questid); // QuestId = 1
-        Chapter currentChapter = chapters.stream()
-                .filter(ch -> ch.getId() == chapterId)
-                .findFirst()
-                .orElse(null);
+        Map<Integer, Chapter> chapterToSend = chapterService.getChapterAndQuestById(chapterId, questionId); // QuestId = 1
+        for (Map.Entry<Integer,Chapter> entry : chapterToSend.entrySet()){
 
+            questionId = entry.getKey();
+            chapterreq = entry.getValue();
+        }
 
-        if (currentChapter == null) {
+        if (chapterToSend == null) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND, "Chapter not found");
             return;
         }
-        chapterService.setCurrentChapter(currentChapter);
+        chapterService.setCurrentChapter(chapterreq);
         // Установка атрибутов для JSP
-        request.setAttribute("chapter", currentChapter);
-        request.setAttribute("chapterId",currentChapter.getId());
+        request.setAttribute("chapter", chapterreq);
+        request.setAttribute("chapterId",chapterreq.getId());
+        request.setAttribute("questionId",questionId);
 
 
         // Переход к JSP
@@ -64,29 +71,43 @@ public class StartQuestServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Получение параметра
-        String nextQuestionIdParam = request.getParameter("next_question_id");
-        System.out.println("Parameter next_question_id: " + request.getParameter("next_question_id"));
+        String chapterIdParam = request.getParameter("chapterId");
+        String questionIdParam = request.getParameter("questionId");
 
-        if (nextQuestionIdParam == null) {
+        if (questionIdParam == null) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "No answer selected");
             return;
         }
 
+        Chapter chapterToSend = null;
+        Integer questionIdToSend = null;
         try {
-            int nextQuestionId = Integer.parseInt(nextQuestionIdParam);
+            int chapterId = Integer.parseInt(chapterIdParam);
+            int questionId = Integer.parseInt(questionIdParam);
             // Здесь обработка следующей главы
-            Question nextChapter = chapterService.getQuestById(nextQuestionId);
-            if (nextChapter == null) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND, "Next chapter not found");
-                return;
+
+
+            Map<Integer,Chapter> chapterMap = chapterService.getChapterAndQuestById(chapterId,questionId);
+            for (Map.Entry<Integer,Chapter> entry : chapterMap.entrySet()){
+                chapterToSend = entry.getValue();
+                questionIdToSend = entry.getKey();
             }
 
             // Установить следующую главу в атрибутах
-            request.setAttribute("chapter", nextChapter);
-            request.getRequestDispatcher("/quest.jsp").forward(request, response);
         } catch (NumberFormatException e) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid answer ID");
         }
+        if(chapterToSend != null  && questionIdToSend != null){
+            chapterService.setCurrentChapter(chapterToSend);
+            request.setAttribute("chapter", chapterToSend);
+            request.setAttribute("questionId", questionIdToSend);
+            request.getRequestDispatcher("/quest.jsp").forward(request, response);
+
+        }
+        else{
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid Chapter!");
+        }
+
     }
 
 }
